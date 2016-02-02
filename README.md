@@ -38,9 +38,6 @@ spm server
 ### 如何打包上线
 cd 项目根目录下
 ```
-sh build.sh
+sh release.sh
 ```
 上线代码在 _release/ 中
-
-### https://github.com/seasonli/mobvoi-goldpresscon-invitation 的特别说明
-url 中可加入参数 name 自定义“媒体人”名字
