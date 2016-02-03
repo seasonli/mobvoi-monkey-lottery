@@ -292,6 +292,10 @@ body {
   top: auto;
   bottom: 4%;
 }
+.main.zoom-in .layer_wave .bubble_ticwatch img {
+  width: 92px;
+  height: 92px;
+}
 .main.zoom-in .layer_wave .bubble_didi {
   right: 12%;
   bottom: 18%;
@@ -299,6 +303,10 @@ body {
 .main.zoom-in .layer_wave .bubble_wenwen {
   left: 5%;
   bottom: 15%;
+}
+.main.zoom-in .layer_wave .bubble_wenwen img {
+  width: 92px;
+  height: 92px;
 }
 .main.zoom-in .layer_wave .bubble_iphone {
   left: 28%;
@@ -445,6 +453,10 @@ body {
   animation-fill-mode: none;
   animation-play-state: running;
 }
+.main .layer_wave .bubble_ticwatch img {
+  width: 70px;
+  height: 70px;
+}
 .main .layer_wave .bubble_didi {
   right: 15%;
   bottom: 65%;
@@ -484,6 +496,10 @@ body {
   animation-direction: normal;
   animation-fill-mode: none;
   animation-play-state: running;
+}
+.main .layer_wave .bubble_wenwen img {
+  width: 70px;
+  height: 70px;
 }
 .main .layer_wave .bubble_iphone {
   left: 20%;
