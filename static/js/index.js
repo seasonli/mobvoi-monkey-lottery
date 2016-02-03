@@ -193,5 +193,6 @@ $.ajax({
 
 setTimeout(function () {
   $('.loading').hide();
-}, 1000);
+  $main.css('display', 'block');
+}, 500);
 _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'pv', '']);
