@@ -652,7 +652,6 @@ body {
 }
 .main .layer_monkeys .monkeys .monkey_3 {
   position: relative;
-  display: none;
   left: 11%;
   z-index: 1;
   margin: -15px auto 0;

@@ -65,14 +65,14 @@ function selectView() {
 }
 
 function playView(idx) {
-  $monkey.attr('src', '../static/img/monkey-3-' + idx + '.png').css('display', 'block');
+  $monkey.attr('src', '../static/img/monkey-3-' + idx + '.png');
   $main.addClass('zoom-in');
   $monkeys.css('transform', 'scale(' + ($(window).height() / $(window).width() / (5 / 3) * 0.95) + ')');
   $play.css('display', 'block');
 }
 
 function mainView() {
-  $monkey.attr('src', '').css('display', 'block');
+  $monkey.attr('src', '../static/img/monkey-3-0.png');
   $bubbles.removeClass('got');
   $result.removeClass('show');
   setTimeout(function () {
