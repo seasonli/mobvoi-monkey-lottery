@@ -94,11 +94,11 @@ $(window).on('touchstart', function () {
   return false;
 });
 
-$enter.on('touchstart', function() {
+$enter.on('touchstart', function () {
   selectView();
   _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'play-select-monkey', '']);
 });
-$get.on('touchstart', function() {
+$get.on('touchstart', function () {
   choose();
   _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'play-lottery', '']);
 });
@@ -191,5 +191,7 @@ $.ajax({
   }
 });
 
-$('.loading').hide();
+setTimeout(function () {
+  $('.loading').hide();
+}, 1000);
 _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'pv', '']);
