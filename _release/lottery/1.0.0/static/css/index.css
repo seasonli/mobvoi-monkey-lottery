@@ -736,7 +736,7 @@ body {
 .result .selection .monkey_1 {
   z-index: 13;
   margin-top: -30px;
-  width: 70%;
+  width: 90%;
   -webkit-animation-name: ease;
   -webkit-animation-duration: 2.5s;
   -webkit-animation-timing-function: linear;
