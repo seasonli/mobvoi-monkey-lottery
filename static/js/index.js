@@ -114,6 +114,7 @@ $share.on('touchstart', function () {
   _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'try-share', '']);
 });
 $('.shareinfo').on('touchstart', function () {
+  calbk();
   $(this).hide();
 });
 $('#toggle-music').on('touchstart', function () {
@@ -124,6 +125,18 @@ $('#toggle-music').on('touchstart', function () {
   }
   $(this).toggleClass('play');
 });
+
+var calbk = function () {
+  var event = $('.shareinfo').attr('data-event');
+  switch (event) {
+  case 'didi':
+    window.location.href = 'http://gsactivity.diditaxi.com.cn/gulfstream/activity/v2/giftpackage/index?g_channel=3e5f451985d777f289327754f0df983e';
+    break;
+  case 'wenwen':
+    window.location.href = 'http://genius.mobvoi.com/html/mobile/coupon_get';
+    break;
+  }
+};
 
 $.ajax({
   type: 'GET',
@@ -148,17 +161,6 @@ $.ajax({
       var desc = '萌猴帮我捞到了百元新春大红包，100%中奖，你也来试试？';
       var link = window.location.href;
       var imgUrl = 'http://meri-resource.bj.bcebos.com/lottery/4.pic_hd.jpg';
-      var calbk = function () {
-        var event = $('.shareinfo').attr('data-event');
-        switch (event) {
-        case 'didi':
-          window.location.href = 'http://gsactivity.diditaxi.com.cn/gulfstream/activity/v2/giftpackage/index?g_channel=3e5f451985d777f289327754f0df983e';
-          break;
-        case 'wenwen':
-          window.location.href = 'http://genius.mobvoi.com/html/mobile/coupon_get';
-          break;
-        }
-      };
 
       wx.onMenuShareTimeline({
         title: title,
