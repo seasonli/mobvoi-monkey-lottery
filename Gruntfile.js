@@ -50,7 +50,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '',
-          src: ['static/**/*.{js,gif,png,jpg,jpeg,gif}'],
+          src: ['static/**/*.{js,png,jpg,jpeg,gif,mp3}'],
           dest: '_dev/'
         }]
       }
@@ -154,6 +154,8 @@ module.exports = function (grunt) {
     grunt.config.set('htmlbuild.release.files.0.dest', dest);
     grunt.config.set('copy.common.files.0.dest', dest);
     grunt.config.set('less.common.files.0.dest', dest);
+    grunt.config.set('copy.common.files.0.src', ['static/**/*.{png,jpg,jpeg,gif,mp3}']);
+    grunt.config.set('copy.common.files.0.dest', dest);
     grunt.config.set('imagemin.common.files.0.dest', dest);
     grunt.config.set('filerev.common.files.0.cwd', dest);
     grunt.config.set('filerev.common.files.0.dest', dest);
@@ -164,6 +166,7 @@ module.exports = function (grunt) {
     // grunt.task.run('clean:release');
     grunt.task.run('htmlbuild:release');
     grunt.task.run('less:common');
+    grunt.task.run('copy:common');
     grunt.task.run('imagemin:common');
     grunt.task.run('filerev:common');
     grunt.task.run('usemin:common');

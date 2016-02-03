@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta name="format-detection" content="telephone=no" />
-    <title>...</title>
+    <title>Ticwatch猴礼捞不停</title>
     <style type="text/css">
       .loading{
         position: absolute;
@@ -30,6 +30,7 @@
     <!-- /build -->
 
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="http://s19.cnzz.com/z_stat.php?id=1252939802"></script>
 
     <!-- build:remove release -->
     <script type="text/javascript" src="../static/js/sea.js"></script>
@@ -46,6 +47,8 @@
 
   </head>
   <body>
+    <audio id="bg-music" src="../static/bg.mp3" autoplay loop></audio>
+    <a id="toggle-music" class="play"></a>
     <div class="page main">
       <div class="layer layer_bg">
         <img class="bg bg_left" src="../static/img/bg-left.png" />
@@ -115,7 +118,7 @@
         <img class="gift" src="../static/img/prize-didi.png" />
         <div>
           <a href="javascript:;">
-            <img src="../static/img/btn-get.png" />
+            <img class="share" data-event="didi" src="../static/img/btn-get.png" />
           </a>
           <a href="javascript:;">
             <img class="again" src="../static/img/btn-again.png" />
@@ -128,7 +131,7 @@
         <img class="gift" src="../static/img/prize-wenwen.png" />
         <div>
           <a href="javascript:;">
-            <img src="../static/img/btn-get.png" />
+            <img class="share" data-event="wenwen" src="../static/img/btn-get.png" />
           </a>
           <a href="javascript:;">
             <img class="again" src="../static/img/btn-again.png" />
@@ -138,6 +141,7 @@
       </div>
     </div>
     <div class="page loading"></div>
+    <div class="page shareinfo"></div>
 
     <!-- build:remove dev -->
     <script type="text/javascript" src="../static/js/index.js"></script>
@@ -147,6 +151,6 @@
       <script type="text/javascript">
         seajs.use('../static/js/index.js');
       </script>
-    <!-- /build --> 
+    <!-- /build -->
   </body>
 </html>

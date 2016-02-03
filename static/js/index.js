@@ -17,7 +17,10 @@ var $hotspot = $('.result .selection .hotspot');
 var $selection = $('.result .selection');
 var $prize = $('.result .prize');
 var $again = $('.result .again');
+var $share = $('.result .share');
 
+
+$('[title="站长统计"]').hide();
 
 function select(idx) {
   $selectionMonkeys.eq(idx).addClass('zoom-in');
@@ -80,7 +83,7 @@ function mainView() {
   $main.removeClass('zoom-in');
   $monkeys.css('transform', 'scale(0.7)');
   setTimeout(function () {
-    $play.css('display', none);
+    $play.css('display', 'none');
   }, 400);
   $operation.css('display', 'block');
 }
@@ -91,15 +94,37 @@ $(window).on('touchstart', function () {
   return false;
 });
 
-$enter.on('touchstart', selectView);
-$get.on('touchstart', choose);
+$enter.on('touchstart', function() {
+  selectView();
+  _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'play-select-monkey', '']);
+});
+$get.on('touchstart', function() {
+  choose();
+  _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'play-lottery', '']);
+});
 $hotspot.on('touchstart', function () {
   select($(this).attr('data-index'));
 });
-$again.on('touchstart', mainView);
+$again.on('touchstart', function () {
+  mainView();
+  _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'play-again', '']);
+});
+$share.on('touchstart', function () {
+  $('.shareinfo').show().attr('data-event', $(this).attr('data-event'));
+  _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'try-share', '']);
+});
+$('.shareinfo').on('touchstart', function () {
+  $(this).hide();
+});
+$('#toggle-music').on('touchstart', function () {
+  if ($(this).hasClass('play')) {
+    document.getElementById('bg-music').pause();
+  } else {
+    document.getElementById('bg-music').play();
+  }
+  $(this).toggleClass('play');
+});
 
-// Wechat-share initialize
-/*
 $.ajax({
   type: 'GET',
   url: 'http://wechat-platform.chumenwenwen.com/apps/common/js_config',
@@ -119,27 +144,52 @@ $.ajax({
     });
 
     wx.ready(function () {
-      var title = '一起去往缎金时代吧' + (name ? '，' + name : '') + '！';
-      var desc = '12月10日下午 出门问问邀你一同闪耀';
+      var title = 'Ticwatch猴礼捞不停';
+      var desc = '萌猴帮我捞到了百元新春大红包，100%中奖，你也来试试？';
       var link = window.location.href;
-      var imgUrl = 'http://baike.bdimg.com/cms/static/r/image/2015-12-07/08a65aef11fad816bbd9331fcd8f232a.jpg';
+      var imgUrl = 'http://meri-resource.bj.bcebos.com/lottery/4.pic_hd.jpg';
+      var calbk = function () {
+        var event = $('.shareinfo').attr('data-event');
+        switch (event) {
+        case 'didi':
+          window.location.href = 'http://gsactivity.diditaxi.com.cn/gulfstream/activity/v2/giftpackage/index?g_channel=3e5f451985d777f289327754f0df983e';
+          break;
+        case 'wenwen':
+          window.location.href = 'http://genius.mobvoi.com/html/mobile/coupon_get';
+          break;
+        }
+      };
 
       wx.onMenuShareTimeline({
         title: title,
         link: link,
-        imgUrl: imgUrl
+        imgUrl: imgUrl,
+        success: function () {
+          calbk();
+          _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'success-share', '']);
+        },
+        cancel: function () {
+          calbk();
+          _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'cancel-share', '']);
+        }
       });
       wx.onMenuShareAppMessage({
         title: title,
         desc: desc,
         link: link,
-        imgUrl: imgUrl
+        imgUrl: imgUrl,
+        success: function () {
+          calbk();
+          _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'success-share', '']);
+        },
+        cancel: function () {
+          calbk();
+          _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'cancel-share', '']);
+        }
       });
     });
   }
 });
-*/
-
-
 
 $('.loading').hide();
+_czc && _czc.push(['_trackEvent', 'monkey-lottery', 'pv', '']);

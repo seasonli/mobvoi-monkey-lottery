@@ -369,6 +369,46 @@ body{
   .cmn-transform(scale(1));
 }
 
+#toggle-music{
+  position: absolute;
+  z-index: 29;
+  right: 10px;
+  top: 10px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #fff;
+  border-radius: 36px;
+  background: url(../img/music.png);
+  background-position: center center;
+  background-size: 80% 80%;
+  background-repeat: no-repeat;
+  &.play{
+    .cmn-animation(play, 5s, linear, 0s);
+  }
+}
+
+@keyframes play{
+  0% { .cmn-transform(rotateZ(0deg)); }
+  100% { .cmn-transform(rotateZ(360deg)); }
+}
+@-webkit-keyframes play{
+  0% { .cmn-transform(rotateZ(0deg)); }
+  100% { .cmn-transform(rotateZ(360deg)); }
+}
+
+.shareinfo{
+  position: absolute;
+  display: none;
+  z-index: 30;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/share.png);
+  background-position: center top;
+  background-size: 100% auto;
+}
+
 @keyframes ease{
   0% { .cmn-transform(translateY(-3px) scale(1))}
   50% { .cmn-transform(translateY(3px) scale(1.02))}
