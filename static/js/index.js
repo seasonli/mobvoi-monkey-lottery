@@ -74,6 +74,7 @@ function playView(idx) {
 function mainView() {
   $monkey.attr('src', '../static/img/monkey-3-0.png');
   $bubbles.removeClass('got');
+  $get.removeClass('disabled');
   $result.removeClass('show');
   setTimeout(function () {
     $result.css('display', 'none');
@@ -99,6 +100,10 @@ $enter.on('touchstart', function () {
   _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'play-select-monkey', '']);
 });
 $get.on('touchstart', function () {
+  if ($(this).hasClass('disabled')) {
+    return;
+  }
+  $get.addClass('disabled');
   choose();
   _czc && _czc.push(['_trackEvent', 'monkey-lottery', 'play-lottery', '']);
 });
