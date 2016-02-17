@@ -836,6 +836,12 @@ body {
 .result .prize div a img {
   width: 40%;
 }
+.result .prize .follow {
+  margin-left: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+}
 .result .prize p {
   position: absolute;
   bottom: 3px;
