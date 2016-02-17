@@ -37,12 +37,12 @@ function select(idx) {
 }
 
 function choose() {
-  var num = Math.random() * 100;
-  if (num <= 0.2) {
-    var prize = 'wenwen';
-  } else {
+  // var num = Math.random() * 100;
+  // if (num <= 0.2) {
+  //   var prize = 'wenwen';
+  // } else {
     var prize = 'didi';
-  }
+  // }
 
   $bubbles.filter('.bubble_' + prize).addClass('got');
   $selection.css('display', 'none');
